@@ -12,10 +12,10 @@ def ConquestCampaign(N, M, L, battalion):
             b.append(0)
         a.append(b)
     for j in range(len(battalion)):  # раставляем еденицы по координатам
-        court_land += 1  # счетчик действий , считываем по 2 координаты
-        if battalion[j] % 2 != 0:  # если четное по вертикали
+        court_land += 1
+        if court_land == 1:
             vert_land = battalion[j]
-        if battalion[j] % 2 == 0:  # если нечетное по горизонтали
+        if court_land == 2:
             goriz_land = battalion[j]
         if court_land == 2 and battalion[j] == battalion[j - 1]:  # если если координаты совпадают то они равны
             vert_land = battalion[j]
@@ -44,6 +44,3 @@ def ConquestCampaign(N, M, L, battalion):
                             if 0 <= i + 1 <= (len(a) - 1) and a[i + 1][j] == 0:
                                 a[i + 1][j] = court_day2
     return court_day + 1
-
-
-
