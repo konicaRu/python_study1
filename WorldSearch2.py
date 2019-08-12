@@ -49,6 +49,3 @@ def WordSearch(widht_str, s, subs):
             end_arr.append(0)
 
     return end_arr
-
-print(WordSearch(12, '1) stroka razbivaetsya na nabor strok...', 'strok'))
-
