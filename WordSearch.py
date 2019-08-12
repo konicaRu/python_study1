@@ -42,8 +42,9 @@ def WordSearch(widht_str, s, subs):
                     court_speace = 0
     end_arr = []
     for h in sum_arr:
-        if h.find(subs) == -1:
+        if subs in h.split():
             end_arr.append(1)
         else:
             end_arr.append(0)
+
     return end_arr
