@@ -12,7 +12,3 @@ def SumOfThe(N, data):
             return summ
         if summ != data[court]:
             summ = 0
-
-
-data = [10, -25, -25, -85, 5]
-print(SumOfThe(2, data))
