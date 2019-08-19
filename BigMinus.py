@@ -18,7 +18,7 @@ def BigMinus(s1, s2):
     if res1 < 0:
         res1 = res1 * -1
     if res1 == 0:
-        return res1
+        return '0'
     res1_tmp = res1
     len_res1 = 0  # узнаем количество знаков в результате разницы res1 = sum_1 - sum_2
     while res1_tmp:  # узнаем количество знаков в результате разницы res1 = sum_1 - sum_2
