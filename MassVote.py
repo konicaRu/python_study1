@@ -7,11 +7,10 @@ def MassVote(N, Votes):
         pecent.append(float('{:.2f}'.format(i / (summ_pec / 100))))
     count = 0
     count1 = 0
-    flag_vote = 0
     for i in pecent:
         if i == max(pecent):
-            count1+=1
-            if count1==2:
+            count1 += 1
+            if count1 == 2:
                 return 'no winner'
     for i in pecent:
         count += 1
