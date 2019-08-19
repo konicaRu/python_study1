@@ -21,7 +21,6 @@ def BigMinus(s1, s2):
         return res1
     res1_tmp = res1
     len_res1 = 0  # узнаем количество знаков в результате разницы res1 = sum_1 - sum_2
-    len_res2 = 0  # разрядность степени для выделения символов из res1
     while res1_tmp:  # узнаем количество знаков в результате разницы res1 = sum_1 - sum_2
         len_res1 += 1
         res1_tmp //= 10
