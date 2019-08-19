@@ -17,4 +17,4 @@ def MassVote(N, Votes):
         if i == max(pecent) and i >= 50:
             return 'majority winner %s' % count
         if i == max(pecent) and i < 50:
-            return 'majority winner %s' % count
+            return 'minority winner %s' % count
