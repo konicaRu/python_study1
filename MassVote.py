@@ -1,4 +1,4 @@
-def MassVote(N=1, Votes=[10, 15, 10]):
+def MassVote(N, Votes):
     summ_pec = 0
     pecent = []
     for i in Votes:
@@ -19,4 +19,3 @@ def MassVote(N=1, Votes=[10, 15, 10]):
             return 'majority winner %s' % count
         if i == max(pecent) and i < 50:
             return 'majority winner %s' % count
-
