@@ -16,7 +16,7 @@ def Unmanned(L, N, track):
                 color = 'red'  # то горит красный
             if time_light > track[k][1] and time_light <= track[k][1] + track[k][2]:
                 color = 'green'
-            if color == 'green' and k == 0:
+            if color == 'green' and k == 0 and len(track) > 1:
                 dist_gen = track[k][0] + wait_time + (track[k + 1][0] - track[k][0])
                 break
             if gen_count > track[k][0] and color == 'red' and k == 0:  # k==0 заглушка для работы только на 1 светофоре
