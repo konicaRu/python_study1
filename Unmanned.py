@@ -23,9 +23,9 @@ def Unmanned(L, N, track):
                 wait_time += 1  # необходимо сделать чтобы было 2
             if time_drive >= dist_gen and color == 'red' and k > 0:
                 wait_time += 1
+            if time_drive >= dist_gen and color == 'green' and k < len(track) - 1:
+                dist_gen = dist_gen + wait_time + (track[k + 1][0] - track[k][0])
+                break
             if time_drive >= dist_gen and color == 'green' and k == len(track) - 1:
                 dist_gen = dist_gen + wait_time + (L - track[k][0])
                 return dist_gen
-            if time_drive >= dist_gen and color == 'green':
-                dist_gen = dist_gen + wait_time + (track[k + 1][0] - track[k][0])
-                break
