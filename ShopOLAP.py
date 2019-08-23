@@ -33,5 +33,6 @@ def ShopOLAP(N, items):
         sum += res_arr[i] + ' ' + str(res_arr[i + 1])
         res_arr_1.append(sum)
         sum = ''
+    res_arr_1.sort()#сортируем обычно
     res_arr_1.sort(reverse=True, key = lambda x: int(x.rsplit(' ',1)[1]))#сортируем по возрастанию знач массива
-    return res_arr_1
+    return res_arr_1#по последнему значению в строке
