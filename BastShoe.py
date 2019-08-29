@@ -25,7 +25,7 @@ def BastShoe(N):
         return gen_line
     if num == 2:  # 2. Удалить(N) -- удалить N символов из конца текущей строки;
         if count_reset > 0:  # по маркеру сброса предыдущая цепочка операций для Undo обнуляется
-            add_line.clear()  # очищаем массивы буфера
+            add_line.clear()
             redo_line.clear()
             del_line.clear()
         remov = int(N[2:]) * -1  # сколько знаков будем удалять
@@ -36,7 +36,7 @@ def BastShoe(N):
     if num == 3:
         if int(N[2:]) <= len(gen_line) - 1:  # выдать i-й символ текущей строки (индексация начинается с нуля)
             return gen_line[int(N[2:])]  # в форме стр. Если индекс за пределами строки, возвращайте пустую строку;
-    if not arr_indicat:  # если список индикаторов элементов пуст печатаем строку
+    if not arr_indicat and num == 4:  # если список индикаторов элементов пуст печатаем строку
         return gen_line
     if num == 4 and arr_indicat[-1] == 1:  # UNDO отмена последней операции 1 добавление
         if not add_line:  # если список добавленных элементов пуст печатаем строку
@@ -49,10 +49,14 @@ def BastShoe(N):
         count_reset = 1  # ставим маркер сброса предыдущая цепочка операций для Undo обнуляется
         return gen_line
     if num == 4 and arr_indicat[-1] == 2:  # UNDO отмена последней операции  2; удаление
-        gen_line += del_line[-1]  # добавляем удаленную строку из буфера
-        redo_line.append(del_line[-1])  # и добавляем ее в редо если последует отмена
-        del del_line[-1]  # удаляем добавленную часть из буфера массива
-        del arr_indicat[-1]  # убираем индикатор
+        if not arr_indicat:  # если список индикаторов элементов пуст печатаем строку
+            return gen_line
+        if not del_line:  # если список добавленных элементов пуст печатаем строку
+            return gen_line
+        gen_line += del_line[-1]
+        redo_line.append(del_line[-1])
+        del del_line[-1]
+        del arr_indicat[-1]
         count_reset = 2  # ставим маркер сброса предыдущая цепочка операций для Undo обнуляется
         return gen_line
     if num == 5:  # REDO выполнить заново последнюю отменённую с помощью Undo операцию
@@ -67,4 +71,3 @@ def BastShoe(N):
         arr_indicat.append(1)  # меняем индиккатор
         del redo_line[-1]  # убираепм из буфера!!
     return gen_line
-
