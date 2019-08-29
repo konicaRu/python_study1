@@ -6,7 +6,7 @@ redo_line = []  # накапливаем элементы для REDO(выпол
 count_reset = 0
 
 
-def BastShoe():
+def BastShoe(N):
     num = int(N[0])  # отделяем первую цифру
     if num <= 0 or num > 5:  #
         return 'Wrong enter'
