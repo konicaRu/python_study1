@@ -18,7 +18,7 @@ def BastShoe(N):
         if count_reset > 0:  # по маркеру сброса предыдущая цепочка операций для Undo обнуляется
             add_line.clear()
             redo_line.clear()
-            del_line = []
+            del_line.clear()
         gen_line += N[2:]  # убираем из введенной строки цифру и пробел, 2 первых знака
         add_line.append(N[2:])  # добавляем в строку хранения добавленных элементов add_line
         arr_indicat.append(1)  # добавляем индикатор произведенного действия 1 в arr_indicat
