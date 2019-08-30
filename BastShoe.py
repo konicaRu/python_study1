@@ -22,6 +22,7 @@ def BastShoe(N):
         gen_line += N[2:]  # убираем из введенной строки цифру и пробел, 2 первых знака
         add_line.append(N[2:])  # добавляем в строку хранения добавленных элементов add_line
         arr_indicat.append(1)  # добавляем индикатор произведенного действия 1 в arr_indicat
+        count_reset = 0
         return gen_line
     if num == 2:  # 2. Удалить(N) -- удалить N символов из конца текущей строки;
         if count_reset > 0:  # по маркеру сброса предыдущая цепочка операций для Undo обнуляется
@@ -32,6 +33,7 @@ def BastShoe(N):
         del_line.append(gen_line[remov:])  # добавляем удаленные знаки в массив для возможной отмены операции
         gen_line = gen_line[:remov]  # удаляем из основной строки
         arr_indicat.append(2)  # ставим маркер какая 4 сработает
+        count_reset = 0
         return gen_line
     if num == 3:
         if int(N[2:]) <= len(gen_line) - 1:  # выдать i-й символ текущей строки (индексация начинается с нуля)
