@@ -35,4 +35,3 @@ def MatrixTurn(M, N, T):
                 tmp_stor = tmp_stor1
                 gen_leght -= 1
     return arr_mtrx
-print(MatrixTurn(4, 6, 2))
