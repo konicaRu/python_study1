@@ -37,4 +37,3 @@ def MatrixTurn( Matrix, T):
                 tmp_stor = tmp_stor1
                 gen_leght -= 1
     return arr_mtrx
-print(MatrixTurn(['123456', '234567', '345678', '456789'], 0))
