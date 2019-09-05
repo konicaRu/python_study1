@@ -1,4 +1,4 @@
-def MatrixTurn( Matrix, T):
+def MatrixTurn( Matrix, M, N, T):
     arr_mtrx = []
     count = -1
     for i in range(len(Matrix)):
