@@ -34,4 +34,4 @@ def MatrixTurn(M, N, T):
                 arr_mtrx[i][read_field] = tmp_stor
                 tmp_stor = tmp_stor1
                 gen_leght -= 1
-    return arr_mtrx
+    return arr_mtrx 
