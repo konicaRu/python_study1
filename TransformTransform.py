@@ -26,8 +26,4 @@ def TransformTransform (A,N):
             B.append(max(tmp))  # добавляем в В макс значение из тмп
             tmp = []  # обнуляем временный массив
     if sum(B)%2 == 0:
-        return True, sum(B)
-
-
-A = [5,9,4,6,1,8,12]
-print(TransformTransform(A, 3))
+        return True
