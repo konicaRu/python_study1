@@ -1,3 +1,4 @@
+#https://habr.com/ru/company/mailru/blog/420605/
 def BalancedParentheses(n):
     n *= 2
     arr = ['(' for _ in range(n // 2)] + [')' for _ in range(n // 2)]  # печатаем нулевую последовательность
