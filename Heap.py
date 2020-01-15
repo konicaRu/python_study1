@@ -3,7 +3,7 @@ class Heap:
     def __init__(self):
         self.HeapArray = []  # хранит неотрицательные числа-ключи
 
-    def MakeHeap(self, a, depth = 3):
+    def MakeHeap(self, a, depth):
         self.HeapArray =[None] * (2 ** (depth + 1) - 1)# создаем итоговый архив с нанами
         if len(a) == 0:
             return self.HeapArray
