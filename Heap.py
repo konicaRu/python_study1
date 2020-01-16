@@ -20,31 +20,32 @@ class Heap:
         return self.HeapArray
 
     def GetMax(self):
-        count = 0
+        count_N = 0
         for i in self.HeapArray:
             if i == None:
-                count += 1
-        if len(self.HeapArray) == count:
+                count_N += 1
+        if len(self.HeapArray) == count_N:
             return -1  # если куча пуста состоит из None
-        if len(self.HeapArray) - 1 == count:  # если куча  состоит из одного элемента
+        if len(self.HeapArray) - 1 == count_N:  # если куча  состоит из одного элемента
             return -1
         count = 0
         index = 0
         for i in self.HeapArray:
             if i != None:
                 count += 1
+        root =  self.HeapArray[0]
         self.HeapArray[0] = self.HeapArray[count - 1]
         self.HeapArray.pop(count - 1)
         while True:
             if 2 * index + 1 > count - 2 or 2 * index + 2 > count - 2:
-                return self.HeapArray[0]
+                return root
             if self.HeapArray[2 * index + 2] > self.HeapArray[2 * index + 1]:
                 swapR = self.HeapArray[index]
                 self.HeapArray[index] = self.HeapArray[2 * index + 2]
                 self.HeapArray[2 * index + 2] = swapR
                 index = 2 * index + 2
             if 2 * index + 1 > count - 2 or 2 * index + 2 > count - 2:
-                return self.HeapArray[0]
+                return root
             if self.HeapArray[2 * index + 2] < self.HeapArray[2 * index + 1]:
                 swapL = self.HeapArray[index]
                 self.HeapArray[index] = self.HeapArray[2 * index + 1]
