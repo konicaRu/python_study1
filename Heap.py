@@ -35,7 +35,7 @@ class Heap:
                 count += 1
         root =  self.HeapArray[0]
         self.HeapArray[0] = self.HeapArray[count - 1]
-        self.HeapArray.pop(count - 1)
+        self.HeapArray[count - 1] = None
         while True:
             if 2 * index + 1 > count - 2 or 2 * index + 2 > count - 2:
                 return root
