@@ -7,6 +7,7 @@ class Heap:
         self.HeapArray = [None] * (2 ** (depth + 1) - 1)  # создаем итоговый архив с нанами
         if len(a) == 0:
             return self.HeapArray
+        # a = a[::-1]  # переворачиваем массив чтобы работать с последнего элемента
         self.HeapArray[0] = a[0]  # сразу ставим первый элемент
         for i in range(1, len(a)):  # пробегаем  по данным исходного массива начиная со второго тк первый уже вставили
             self.HeapArray[i] = a[i]  # вставляем элемент на первое свободное поле
@@ -30,21 +31,19 @@ class Heap:
         count = 0
         index = 0
         for i in self.HeapArray:
-            if i == None:
+            if i != None:
                 count += 1
-        del self.HeapArray[-count:-1]
-        del self.HeapArray[-1]
-        self.HeapArray[0] = self.HeapArray[- 1]
-        self.HeapArray.pop(-1)
+        self.HeapArray[0] = self.HeapArray[count - 1]
+        self.HeapArray.pop(count - 1)
         while True:
-            if 2 * index + 1 > len(self.HeapArray) - 1 or 2 * index + 2 > len(self.HeapArray) - 1:
+            if 2 * index + 1 > count - 2 or 2 * index + 2 > count - 2:
                 return self.HeapArray[0]
             if self.HeapArray[2 * index + 2] > self.HeapArray[2 * index + 1]:
                 swapR = self.HeapArray[index]
                 self.HeapArray[index] = self.HeapArray[2 * index + 2]
                 self.HeapArray[2 * index + 2] = swapR
                 index = 2 * index + 2
-            if 2 * index + 1 > len(self.HeapArray) - 1 or 2 * index + 2 > len(self.HeapArray) - 1:
+            if 2 * index + 1 > count - 2 or 2 * index + 2 > count - 2:
                 return self.HeapArray[0]
             if self.HeapArray[2 * index + 2] < self.HeapArray[2 * index + 1]:
                 swapL = self.HeapArray[index]
@@ -52,14 +51,18 @@ class Heap:
                 self.HeapArray[2 * index + 1] = swapL
                 index = 2 * index + 1
 
-        # вернуть значение корня и перестроить кучу
-
     def Add(self, key):
-        arr = []
+        count = 0
         if None not in self.HeapArray:
             return False  # если куча вся заполнена
         for i in self.HeapArray:
             if i != None:
-                arr.append(i)
-        arr.append(key)
-        return self.MakeHeap(arr, int(len(self.HeapArray) ** 0.5))
+                count += 1
+        self.HeapArray[count] = key
+        while self.HeapArray[count] > self.HeapArray[int((count - 1) / 2)]:  # если элемент больше родителя
+            swap = self.HeapArray[int((count - 1) / 2)]  # сохраняем значение родителя в переменной
+            self.HeapArray[int((count - 1) / 2)] = self.HeapArray[count]  # меняем значение  родителя на ребенка
+            self.HeapArray[count] = swap  # меняем значение ребенка на родителя
+            count = int((count - 1) // 2)  # увеличивваем индекс на родительский
+
+        return self.HeapArray
