@@ -18,10 +18,6 @@ class SimpleGraph:
                 return
             if self.vertex[i] != None:
                 continue
-            return
-        # ваш код добавления новой вершины
-        # с значением value
-        # в свободное место массива vertex
         return
 
         # здесь и далее, параметры v -- индекс вершины
@@ -52,17 +48,3 @@ class SimpleGraph:
         self.m_adjacency[v1][v2] = 0  # удаление ребра между вершинами v1 и v2
         self.m_adjacency[v2][v1] = 0
         return
-
-
-
-graff = SimpleGraph(4)
-print(graff.AddVertex(1))
-print(graff.AddVertex(2))
-print(graff.AddVertex(3))
-print(graff.AddVertex(4))
-print(graff.AddEdge(0, 1))
-print(graff.AddEdge(1, 2))
-print(graff.AddEdge(1, 3))
-print(graff.IsEdge(0, 1))
-print(graff.RemoveEdge(1, 3))
-print(graff.RemoveVertex(1))
