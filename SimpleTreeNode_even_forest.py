@@ -38,26 +38,3 @@ class SimpleTree:
                         res.append(node.Children[i])
 
         return res
-
-
-node1 = SimpleTreeNode(1, None)
-node2 = SimpleTreeNode(2, None)
-node3 = SimpleTreeNode(3, None)
-node4 = SimpleTreeNode(4, None)
-node5 = SimpleTreeNode(5, None)
-node6 = SimpleTreeNode(6, None)
-node7 = SimpleTreeNode(7, None)
-node8 = SimpleTreeNode(8, None)
-node9 = SimpleTreeNode(9, None)
-node10 = SimpleTreeNode(10, None)
-graf = SimpleTree(node1)
-graf.AddChild(node1, node2)
-graf.AddChild(node1, node3)
-graf.AddChild(node6, node8)
-graf.AddChild(node2, node5)
-graf.AddChild(node1, node6)
-graf.AddChild(node2, node7)
-graf.AddChild(node3, node4)
-graf.AddChild(node8, node9)
-graf.AddChild(node8, node10)
-graf.EvenTrees()
