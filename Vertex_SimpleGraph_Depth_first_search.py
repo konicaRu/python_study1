@@ -47,28 +47,28 @@ class SimpleGraph:
         self.m_adjacency[v2][v1] = 0
         return
 
-    def DepthFirstSearch(self, VFrom, VTo):
+    def DepthFirstSearch(self, VFrom, VTo):# поиск в глубину
         res = []
-        node = self.m_adjacency[VFrom]
-        res.append(self.vertex[VFrom])
-        self.vertex[VFrom].hit = True
-        count = -1
+        node = self.m_adjacency[VFrom]# показываем указателем на начало поиска
+        res.append(self.vertex[VFrom])# добавляем его в список первым
+        self.vertex[VFrom].hit = True # присваяваем графу флажок просмотрен
+        count = -1 # счетчик итераций
         while True:
-            for i in node:
+            for i in node: # пробегаем по массиву матрицы на который указывает указатель находя первое ребро в списке
                 count += 1
-                if count > len(node) - 1:
-                    res.pop()
-                    if res == []:
+                if count > len(node) - 1:# почему то for не ограничивался длинной массива матрицы а бежал дальще это костыль чтобы его остановить в пределах массива, если новых ребер нет
+                    res.pop()# удаляем граф из стека
+                    if res == []:# если список пустой все графы удалены искомый узел не найден
                         return []
-                    node = self.m_adjacency[len(res) - 1]
+                    node = self.m_adjacency[len(res) - 1]# переводим указатель на следуюший граф от удаленного
                     count = -1
-                    break
-                if i == 1 and count == VTo:
+                    break # возвращаемся на фор и еще раз пробегаем узел на который указывает указатель нода
+                if i == 1 and count == VTo:# усли индекс ребра равен искомому узлу добавляем его в список и выходим из фукцции с путем к искомой ноде
                     res.append(self.vertex[VTo])
                     return res
-                if i == 1 and count != VTo and self.vertex[count].hit == False:
-                    res.append(self.vertex[count])
-                    self.vertex[count].hit = True
-                    node = self.m_adjacency[count]
-                    count = -1
-                    break
+                if i == 1 and count != VTo and self.vertex[count].hit == False: #нашли граф не просмотренный не конечный 
+                    res.append(self.vertex[count])# добавляем в список
+                    self.vertex[count].hit = True # # присваяваем графу флажок просмотрен
+                    node = self.m_adjacency[count] # переводим указатель на следующий список ребер графа
+                    count = -1 # обнуляем счетчик
+                    break # запуская цикл for  заново
