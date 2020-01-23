@@ -72,14 +72,3 @@ class SimpleGraph:
                     node = self.m_adjacency[count]
                     count = -1
                     break
-
-
-graff = SimpleGraph(4)
-print(graff.AddVertex(1))
-print(graff.AddVertex(2))
-print(graff.AddVertex(3))
-print(graff.AddVertex(4))
-print(graff.AddEdge(0, 1))
-# print(graff.AddEdge(1, 2))
-# print(graff.AddEdge(1, 3))
-print(graff.DepthFirstSearch(0, 5))
