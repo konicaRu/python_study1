@@ -1,3 +1,11 @@
+class Vertex:
+
+    def __init__(self, val):
+        self.Value = val
+        self.hit = False
+        self.parents = None
+
+
 class SimpleGraph:
 
     def __init__(self, size):
@@ -68,7 +76,7 @@ class SimpleGraph:
 
 
 
-        def BreadthFirstSearch(self, VFrom, VTo):
+    def BreadthFirstSearch(self, VFrom, VTo):
         res = []
         res_end = []
         res.append(self.vertex[VFrom])# добавляем в итоговый-промежуточный массив графф с которого начинаем поиск
@@ -90,4 +98,3 @@ class SimpleGraph:
                         self.vertex[count_graf].parents = i # ставим отметку кто родитель
                 count_graf = -1 # при выходе из цикла сбрасываем счетчик
         return []
-
