@@ -68,13 +68,13 @@ class SimpleGraph:
 
 
 
-    def BreadthFirstSearch(self, VFrom, VTo):
+        def BreadthFirstSearch(self, VFrom, VTo):
         res = []
         res_end = []
         res.append(self.vertex[VFrom])# добавляем в итоговый-промежуточный массив графф с которого начинаем поиск
         count_graf = -1
         for i in res: # бежим по этому списку
-            if i == self.vertex[VTo]: # усли нашли конечный ,
+            if i == self.vertex[VTo]: # если нашли конечный ,
                 node = self.vertex[VTo] # ставим указатель на конец
                 res_end.append(node) #добавляем его в итоговый список
                 while node.parents != None: #пока не доходим до начального  графа
@@ -89,25 +89,5 @@ class SimpleGraph:
                         res.append(self.vertex[count_graf])# добавляем его в итоговый промежуточный список
                         self.vertex[count_graf].parents = i # ставим отметку кто родитель
                 count_graf = -1 # при выходе из цикла сбрасываем счетчик
+        return []
 
-
-
-
-# узлы задаются позициями в списке vertex
-# возвращается список узлов -- путь из VFrom в VTo
-# или [] если пути нету
-
-graff = SimpleGraph(5)
-print(graff.AddVertex(1))
-print(graff.AddVertex(2))
-print(graff.AddVertex(3))
-print(graff.AddVertex(4))
-print(graff.AddVertex(5))
-print(graff.AddEdge(0, 1))
-print(graff.AddEdge(0, 2))
-print(graff.AddEdge(0, 3))
-print(graff.AddEdge(2, 4))
-print(graff.AddEdge(3, 4))
-print(graff.BreadthFirstSearch(0, 4))
-
-#Vertex_BreadthFirstSearch
