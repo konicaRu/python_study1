@@ -3,7 +3,7 @@ class Vertex:
     def __init__(self, val):
         self.Value = val
         self.hit = False
-        self.parents = None
+        self.level = None
 
 
 class SimpleGraph:
@@ -75,26 +75,99 @@ class SimpleGraph:
                     break
 
 
-
     def BreadthFirstSearch(self, VFrom, VTo):
         res = []
-        res_end = []
         res.append(self.vertex[VFrom])# добавляем в итоговый-промежуточный массив графф с которого начинаем поиск
+        self.vertex[VFrom].level = 0
         count_graf = -1
         for i in res: # бежим по этому списку
-            if i == self.vertex[VTo]: # если нашли конечный ,
-                node = self.vertex[VTo] # ставим указатель на конец
-                res_end.append(node) #добавляем его в итоговый список
-                while node.parents != None: #пока не доходим до начального  графа
-                    node = node.parents # переводим указатель
-                    res_end.append(node)  # добавляем его в итоговый список
-                return res_end [::-1]
             if i.hit != True: # пробегаем по нему если стоит отметка что еще не смотрели hit != True
                 i.hit = True # ставим флаг что просмотрено
                 for j in self.m_adjacency [self.vertex.index(i)]: # пробегаем по массиву где ребра этого графа
                     count_graf += 1
-                    if j == 1 and self.vertex[count_graf].hit != True: # если есть ребро и соответственно смежный граф
+                    if j == 1 and self.vertex[count_graf].hit != True and self.vertex[count_graf] not in res : # если есть ребро и соответственно смежный граф
                         res.append(self.vertex[count_graf])# добавляем его в итоговый промежуточный список
-                        self.vertex[count_graf].parents = i # ставим отметку кто родитель
+                        self.vertex[count_graf].level = i.level + 1  # ставим отметку какой уровень
                 count_graf = -1 # при выходе из цикла сбрасываем счетчик
-        return []
+        res_way = []
+        res_way.insert(0, self.vertex[VTo])
+        index_way = VTo
+        count_way = -1
+        while True:
+            for i in self.m_adjacency[index_way]:
+                count_way += 1
+                if self.vertex[count_way].level == None:
+                    return []
+                if i == 1:
+                    if self.vertex[count_way].level == 0:
+                        res_way.insert(0, self.vertex[count_way])
+                        return res_way
+                    if self.vertex[count_way].level == self.vertex[index_way].level - 1 and self.vertex[count_way] not in res_way:
+                        res_way.insert(0, self.vertex[count_way])
+                        index_way = count_way
+                        count_way = -1
+                        break
+
+
+
+
+# загоняет графы по два раза вс в список проверить
+# проверять смежные графы исходя из едениц 1 в списках
+
+# graff = SimpleGraph(5)
+# graff.AddVertex(0)
+# graff.AddVertex(1)
+# graff.AddVertex(2)
+# graff.AddVertex(3)
+# graff.AddVertex(4)
+# graff.AddEdge(0, 1)
+# graff.AddEdge(0, 2)
+# graff.AddEdge(2, 3)
+# graff.AddEdge(3, 4)
+# print(graff.BreadthFirstSearch(1, 4))
+
+# graff = SimpleGraph(5)
+# graff.AddVertex(0)
+# graff.AddVertex(1)
+# graff.AddVertex(2)
+# graff.AddVertex(3)
+# graff.AddVertex(4)
+# graff.AddEdge(0, 1)
+# graff.AddEdge(0, 4)
+# graff.AddEdge(1, 2)
+# graff.AddEdge(4, 2)
+# graff.AddEdge(1, 3)
+# graff.AddEdge(4, 3)
+# graff.AddEdge(2, 3)
+# print(graff.BreadthFirstSearch(0, 2))
+
+# graff = SimpleGraph(6)
+# graff.AddVertex(0)
+# graff.AddVertex(1)
+# graff.AddVertex(2)
+# graff.AddVertex(3)
+# graff.AddVertex(4)
+# graff.AddVertex(5)
+# graff.AddEdge(0, 1)
+# graff.AddEdge(0, 2)
+# graff.AddEdge(0, 3)
+# graff.AddEdge(4, 2)
+# graff.AddEdge(0, 3)
+# graff.AddEdge(1, 2)
+# graff.AddEdge(2, 3)
+# graff.AddEdge(3, 4)
+# print(graff.BreadthFirstSearch(1, 5))
+#Vertex_BreadthFirstSearch
+graff = SimpleGraph(6)
+graff.AddVertex(0)
+graff.AddVertex(1)
+graff.AddVertex(2)
+graff.AddVertex(3)
+graff.AddVertex(4)
+graff.AddVertex(5)
+graff.AddEdge(0, 1)
+graff.AddEdge(1, 2)
+graff.AddEdge(3, 4)
+graff.AddEdge(4, 5)
+print(graff.BreadthFirstSearch(1, 2))
+#Vertex_BreadthFirstSearch
