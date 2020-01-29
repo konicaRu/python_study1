@@ -74,23 +74,24 @@ class SimpleGraph:
                     count = -1
                     break
 
-
     def BreadthFirstSearch(self, VFrom, VTo):
-        if self.m_adjacency[VFrom].count(0) == len(self.m_adjacency)  or self.m_adjacency[VTo].count(0) == len(self.m_adjacency):# если у начального и конечного элемента
-            return []# нет связей с остальными
+        if self.m_adjacency[VFrom].count(0) == len(self.m_adjacency) or self.m_adjacency[VTo].count(0) == len(self.m_adjacency):  # если у начального и конечного элемента
+            return []  # нет связей с остальными
+        if VFrom == VTo:
+            return [self.vertex[VFrom], self.vertex[VTo]]
         res = []
-        res.append(self.vertex[VFrom])# добавляем в итоговый-промежуточный массив графф с которого начинаем поиск
-        #self.vertex[VFrom].level = 0
+        res.append(self.vertex[VFrom])  # добавляем в итоговый-промежуточный массив графф с которого начинаем поиск
+        # self.vertex[VFrom].level = 0
         count_graf = -1
-        for i in res: # бежим по этому списку
-            if i.hit != True: # пробегаем по нему если стоит отметка что еще не смотрели hit != True
-                i.hit = True # ставим флаг что просмотрено
-                for j in self.m_adjacency [self.vertex.index(i)]: # пробегаем по массиву где ребра этого графа
+        for i in res:  # бежим по этому списку
+            if i.hit != True:  # пробегаем по нему если стоит отметка что еще не смотрели hit != True
+                i.hit = True  # ставим флаг что просмотрено
+                for j in self.m_adjacency[self.vertex.index(i)]:  # пробегаем по массиву где ребра этого графа
                     count_graf += 1
-                    if j == 1 and self.vertex[count_graf].hit != True and self.vertex[count_graf] not in res : # если есть ребро и соответственно смежный граф
-                        res.append(self.vertex[count_graf])# добавляем его в итоговый промежуточный список
+                    if j == 1 and self.vertex[count_graf].hit != True and self.vertex[count_graf] not in res:  # если есть ребро и соответственно смежный граф
+                        res.append(self.vertex[count_graf])  # добавляем его в итоговый промежуточный список
                         self.vertex[count_graf].level = i.level + 1  # ставим отметку какой уровень
-                count_graf = -1 # при выходе из цикла сбрасываем счетчик
+                count_graf = -1  # при выходе из цикла сбрасываем счетчик
         res_way = []
         res_way.insert(0, self.vertex[VTo])
         index_way = VTo
@@ -101,7 +102,7 @@ class SimpleGraph:
                 if i == 1:
                     if self.vertex[count_way].level == 0:
                         res_way.insert(0, self.vertex[count_way])
-                        if self.vertex[VFrom] not  in res_way or self.vertex[VTo] not  in res_way:#если начальный и конечный элемент не входят в итоговый список значит пути нет
+                        if self.vertex[VFrom] not in res_way or self.vertex[VTo] not in res_way:  # если начальный и конечный элемент не входят в итоговый список значит пути нет
                             return []
                         else:
                             return res_way
