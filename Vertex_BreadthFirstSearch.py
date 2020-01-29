@@ -3,7 +3,7 @@ class Vertex:
     def __init__(self, val):
         self.Value = val
         self.hit = False
-        self.level = None
+        self.level = 0
 
 
 class SimpleGraph:
@@ -76,9 +76,11 @@ class SimpleGraph:
 
 
     def BreadthFirstSearch(self, VFrom, VTo):
+        if self.m_adjacency[VFrom].count(0) == len(self.m_adjacency)  or self.m_adjacency[VTo].count(0) == len(self.m_adjacency):# если у начального и конечного элемента
+            return []# нет связей с остальными
         res = []
         res.append(self.vertex[VFrom])# добавляем в итоговый-промежуточный массив графф с которого начинаем поиск
-        self.vertex[VFrom].level = 0
+        #self.vertex[VFrom].level = 0
         count_graf = -1
         for i in res: # бежим по этому списку
             if i.hit != True: # пробегаем по нему если стоит отметка что еще не смотрели hit != True
@@ -96,12 +98,13 @@ class SimpleGraph:
         while True:
             for i in self.m_adjacency[index_way]:
                 count_way += 1
-                if self.vertex[count_way].level == None:
-                    return []
                 if i == 1:
                     if self.vertex[count_way].level == 0:
                         res_way.insert(0, self.vertex[count_way])
-                        return res_way
+                        if self.vertex[VFrom] not  in res_way or self.vertex[VTo] not  in res_way:#если начальный и конечный элемент не входят в итоговый список значит пути нет
+                            return []
+                        else:
+                            return res_way
                     if self.vertex[count_way].level == self.vertex[index_way].level - 1 and self.vertex[count_way] not in res_way:
                         res_way.insert(0, self.vertex[count_way])
                         index_way = count_way
