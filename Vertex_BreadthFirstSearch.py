@@ -78,7 +78,10 @@ class SimpleGraph:
         if self.m_adjacency[VFrom].count(0) == len(self.m_adjacency) or self.m_adjacency[VTo].count(0) == len(self.m_adjacency):  # если у начального и конечного элемента
             return []  # нет связей с остальными
         if VFrom == VTo:
-            return [self.vertex[VFrom], self.vertex[VTo]]
+            if self.m_adjacency[VFrom].count(0) == len(self.m_adjacency):
+                return []
+            else:
+                return [self.vertex[VFrom], self.vertex[VTo]]
         res = []
         res.append(self.vertex[VFrom])  # добавляем в итоговый-промежуточный массив графф с которого начинаем поиск
         # self.vertex[VFrom].level = 0
