@@ -84,7 +84,6 @@ class SimpleGraph:
                 return [self.vertex[VFrom], self.vertex[VTo]]
         res = []
         res.append(self.vertex[VFrom])  # добавляем в итоговый-промежуточный массив графф с которого начинаем поиск
-        # self.vertex[VFrom].level = 0
         count_graf = -1
         for i in res:  # бежим по этому списку
             if i.hit != True:  # пробегаем по нему если стоит отметка что еще не смотрели hit != True
@@ -106,8 +105,14 @@ class SimpleGraph:
                     if self.vertex[count_way].level == 0:
                         res_way.insert(0, self.vertex[count_way])
                         if self.vertex[VFrom] not in res_way or self.vertex[VTo] not in res_way:  # если начальный и конечный элемент не входят в итоговый список значит пути нет
+                            for k in self.vertex:
+                                k.level = 0
+                                k.hit = False
                             return []
                         else:
+                            for k in self.vertex:
+                                k.level = 0
+                                k.hit = False
                             return res_way
                     if self.vertex[count_way].level == self.vertex[index_way].level - 1 and self.vertex[count_way] not in res_way:
                         res_way.insert(0, self.vertex[count_way])
