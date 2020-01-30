@@ -2,7 +2,6 @@ import unittest
 import Vertex_BreadthFirstSearch
 
 
-class MyTestCase(unittest.TestCase):
     def test_my_peper_B(self):
         graff = Vertex_BreadthFirstSearch.SimpleGraph(6)
         graff.AddVertex(0)
@@ -13,10 +12,10 @@ class MyTestCase(unittest.TestCase):
         graff.AddEdge(0, 1)
         graff.AddEdge(0, 2)
         graff.AddEdge(0, 3)
-        graff.AddEdge(2, 4)
+        graff.AddEdge(1, 4)
+        graff.AddEdge(1, 3)
         graff.AddEdge(2, 3)
         graff.AddEdge(3, 4)
-        graff.AddEdge(1, 3)
         self.assertEqual(len(graff.BreadthFirstSearch(0, 3)) == 2, True)
         self.assertEqual(graff.BreadthFirstSearch(0, 3)[0] == graff.vertex[0], True)
         self.assertEqual(graff.BreadthFirstSearch(0, 3)[-1] == graff.vertex[3], True)
