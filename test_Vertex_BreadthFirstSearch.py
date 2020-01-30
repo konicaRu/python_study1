@@ -20,7 +20,25 @@ import Vertex_BreadthFirstSearch
         self.assertEqual(graff.BreadthFirstSearch(0, 3)[0] == graff.vertex[0], True)
         self.assertEqual(graff.BreadthFirstSearch(0, 3)[-1] == graff.vertex[3], True)
 
-    
+       def test_my_peper_B2(self):
+        graff = Vertex_BreadthFirstSearch.SimpleGraph(6)
+        graff.AddVertex(0)
+        graff.AddVertex(1)
+        graff.AddVertex(2)
+        graff.AddVertex(3)
+        graff.AddVertex(4)
+        graff.AddEdge(0, 1)
+        graff.AddEdge(0, 2)
+        graff.AddEdge(0, 3)
+        graff.AddEdge(1, 4)
+        graff.AddEdge(1, 3)
+        graff.AddEdge(2, 3)
+        graff.AddEdge(3, 4)
+        self.assertEqual(len(graff.BreadthFirstSearch(0, 4)) == 3, True)
+        self.assertEqual(graff.BreadthFirstSearch(0, 4)[0] == graff.vertex[0], True)
+        self.assertEqual(graff.BreadthFirstSearch(0, 4)[-1] == graff.vertex[4], True)
+        self.assertEqual(graff.BreadthFirstSearch(0, 4)[1] == graff.vertex[1], True)
+ 
     def test_my_peper(self):
         graff = Vertex_BreadthFirstSearch.SimpleGraph(6)
         graff.AddVertex(0)
