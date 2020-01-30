@@ -3,6 +3,22 @@ import Vertex_BreadthFirstSearch
 
 
 class MyTestCase(unittest.TestCase):
+        def test_my_peper_B(self):
+        graff = Vertex_BreadthFirstSearch.SimpleGraph(6)
+        graff.AddVertex(0)
+        graff.AddVertex(1)
+        graff.AddVertex(2)
+        graff.AddVertex(3)
+        graff.AddVertex(4)
+        graff.AddEdge(0, 1)
+        graff.AddEdge(0, 2)
+        graff.AddEdge(0, 3)
+        graff.AddEdge(4, 2)
+        graff.AddEdge(3, 4)
+        self.assertEqual(len(graff.BreadthFirstSearch(0, 3)) == 2, True)
+        self.assertEqual(graff.BreadthFirstSearch(0, 3)[0] == graff.vertex[0], True)
+        self.assertEqual(graff.BreadthFirstSearch(0, 3)[-1] == graff.vertex[3], True)
+    
     def test_my_peper(self):
         graff = Vertex_BreadthFirstSearch.SimpleGraph(6)
         graff.AddVertex(0)
