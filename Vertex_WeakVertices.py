@@ -123,17 +123,17 @@ class SimpleGraph:
 
     def WeakVertices(self):
         res = []
-        for index in range(len(self.vertex)):
-            for k in range(0, len(self.m_adjacency[index]) - 1):
-                if self.m_adjacency[index][k] == 1:
+        for index in range(len(self.vertex)):# начинаем пробег с первого графа со списка графоф
+            for k in range(0, len(self.m_adjacency[index]) - 1):#бежим по списку ребер
+                if self.m_adjacency[index][k] == 1: # если находим ребро, фиксируем его count_i
                     count_i = k + 1
-                    for j in range(count_i, len(self.m_adjacency[index]) - 1):
-                        if self.m_adjacency[index][j] == 1:
-                            if self.m_adjacency[k][j] == 1 and self.m_adjacency[j][k] == 1:
-                                self.vertex[index].triangle = True
+                    for j in range(count_i, len(self.m_adjacency[index]) - 1):#бежим по этому же списку ребер дальше от count_i + 1 хотим найти еще ребро
+                        if self.m_adjacency[index][j] == 1:# если ребро находим
+                            if self.m_adjacency[k][j] == 1 and self.m_adjacency[j][k] == 1:# проверяем состовляют ли они треугольник
+                                self.vertex[index].triangle = True #если да присваиваем всем значение тру
                                 self.vertex[k].triangle = True
                                 self.vertex[j].triangle = True
-        for i in self.vertex:
+        for i in self.vertex:# пробегаем по списку ищем графы не вощедшие в треугольники
             if i.triangle == False:
                 res.append(i)
         for k in self.vertex:  # обнуляем показатели графоф левел и уровни до начального состояния смотри в тесте функцию test_my_peper_B2
