@@ -20,7 +20,7 @@ def BubbleSortStep(arr):
         if i == len(arr) - 1 and count == -1:
             return True
         if i == len(arr) - 1:
-            return
+            return False
         if arr[i] > arr[i + 1]:
             count += 1
             inter_index = arr[i]
