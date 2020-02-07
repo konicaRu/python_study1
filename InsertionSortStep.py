@@ -1,4 +1,4 @@
-def InsertionSortStep(array, step=0, ind=0):
+def InsertionSortStep(array, step=1, ind=0):
     if step == 1:
         for i in range(ind, len(array)):
             LocalMin = array[i]
@@ -9,7 +9,8 @@ def InsertionSortStep(array, step=0, ind=0):
             array[j + 1] = LocalMin
         return array
     else:
-        for i in range(ind, len(array)):
+        #for i in range(ind, len(array)):
+            i = ind
             LocalMin = array[i]
             j = i + step
             while j + step <= len(array) - 1:
@@ -22,8 +23,4 @@ def InsertionSortStep(array, step=0, ind=0):
             if array[i] > array[j] and array[i - 1] < array[j]:
                 array[i] = array[j]
                 array[j] = LocalMin
-
-
-# print(InsertionSortStep([4, 3, 1, 2], 3, 0))
-#print(InsertionSortStep([7, 6, 5, 4, 3, 2, 1], 3, 0))
-print(InsertionSortStep([1, 6, 5, 4, 3, 2, 7], 1, 1))
+            return array
