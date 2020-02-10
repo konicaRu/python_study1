@@ -34,10 +34,3 @@ def KnuthSequence(array):
         if count > len(array):
             return res
         res.insert(0, count)
-
-
-
-# print(InsertionSortStep([4, 3, 1, 2], 3, 0))
-# print(InsertionSortStep([7, 6, 5, 4, 3, 2, 1], 3, 0))
-# print(InsertionSortStep([1, 6, 5, 4, 3, 2, 7], 3, 2))
-print(KnuthSequence([i for i in range(1,50)]))
