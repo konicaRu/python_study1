@@ -28,7 +28,7 @@ def InsertionSortStep(array, step=1, ind=0):
 
 def KnuthSequence(array):
     if array == 0:
-        return []
+        return [1]
     count = 1
     res = [1]
     while count <= array:
