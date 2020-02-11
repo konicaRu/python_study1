@@ -17,7 +17,3 @@ def ArrayChunk(m):
         inter_el = m[i1]
         m[i1] = m[i2]
         m[i2] = inter_el
-
-#print(ArrayChunk( [10, 7, 5, 6, 4, 3, 1, 2, 9]))
-print(ArrayChunk( [7, 5, 6, 4, 3, 1, 2, 9]))
-#print(ArrayChunk( [7,5,6,4,3,1,2] ))
