@@ -9,7 +9,7 @@ def ArrayChunk(m):
         if m[i2] > n:
             i2 -= 1
         if i1 == i2 or i1 == i2 - 1 and m[i1] < m[i2]:
-            return ind_supp, m
+            return ind_supp
         if m[i1] == n:
             ind_supp = i2
         if m[i2] == n:
