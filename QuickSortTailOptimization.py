@@ -29,10 +29,3 @@ def QuickSort(m, i1, i2):
                 if m[i2] == n:
                     ind_supp = i1
                 m[i1], m[i2] = m[i2], m[i1]  # меняем местами элементы списка A[i], A[j] = A[j], A[i]
-
-
-# print(QuickSort([6, 5, 7], 0, 1))
-# print(QuickSort([7, 5, 6, 4, 3, 1, 2], 0, 4))
-# print(QuickSort([7, 5, 6, 4, 3, 1, 2], 0, 6))
-# print(QuickSort([12, 11, 15, 7, 5, 6, 4, 3, 1, 2, 87, 98, 70, 23], 0, 13))
-print(QuickSort([7, 5, 6, 4, 3, 1, 2], 0, 6))
