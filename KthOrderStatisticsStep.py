@@ -2,10 +2,13 @@ def KthOrderStatisticsStep(arr, left, right, k):
     arr_median = []
     end = []
     end_left = left
-    while left + 5 <= len(arr) - 1:
+    if left + 5 <= len(arr) - 1:
         InsertionSort(arr, left, left + 5)
         arr_median.append(arr[left + 2])
         left += 5
+    if left + 5 > len(arr) - 1:
+        InsertionSort(arr, left, right)
+        arr_median.append(arr[len(arr[left: right])//2])
     InsertionSort(arr_median, 0, len(arr_median))
     s = arr_median[len(arr_median)//2]
     for i in range(len(arr)):
