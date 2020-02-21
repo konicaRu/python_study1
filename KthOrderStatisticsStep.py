@@ -6,7 +6,7 @@ def KthOrderStatisticsStep(arr, left, right, k):
         InsertionSort(arr, left, left + 5)  # каждый под массив из 5 элементов сортируем функцией def InsertionSort(arr, left, right):
         arr_median.append(arr[left + 2])  # медиану маленького подмассива добавляем в массив медиан
         left += 5  # делаем следующий шаг к след подмассиву из 5 элементов
-    if left + 5 > right - left:  # проходим крайний массив который меньше 5 элементов
+    if left + 5 > right:  # проходим крайний массив который меньше 5 элементов
         InsertionSort(arr, left, right + 1)  # сортируем его
         arr_median.append(arr[(left + right) // 2])  # медиана короткого масива, хвоста
     InsertionSort(arr_median, 0, len(arr_median))  # сортируем медианы
@@ -23,7 +23,7 @@ def KthOrderStatisticsStep(arr, left, right, k):
             if k < i:
                 end.append(end_left)
                 end.append(i)
-                return end
+                return end, arr
 
 
 def InsertionSort(arr, left, right):  # функция для сортировки отрезками подмассивов
