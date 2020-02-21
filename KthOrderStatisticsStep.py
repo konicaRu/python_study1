@@ -23,7 +23,7 @@ def KthOrderStatisticsStep(arr, left, right, k):
             if k < i:
                 end.append(end_left)
                 end.append(i)
-                return end, arr
+                return end
 
 
 def InsertionSort(arr, left, right):  # функция для сортировки отрезками подмассивов
