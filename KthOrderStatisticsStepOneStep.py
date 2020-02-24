@@ -3,15 +3,15 @@ def KthOrderStatisticsStep(arr, left, right, k):
     pivot = QuickSort(arr, left, right)
     if k == pivot:
         end.append(pivot)
-        return end, arr
+        return end
     if k < pivot:
         end.append(left)
         end.append(pivot - 1)
-        return end, arr
+        return end
     if k > pivot:
         end.append(pivot + 1)
         end.append(right)
-        return end, arr
+        return end
 
 
 def QuickSort(m, i1, i2):
@@ -44,10 +44,3 @@ def QuickSort(m, i1, i2):
                 if m[i2] == n:
                     ind_supp = i1
                 m[i1], m[i2] = m[i2], m[i1]  # меняем местами элементы списка A[i], A[j] = A[j], A[i]
-
-#a = [5, 6, 7, 4, 1, 2, 3]
-#print(KthOrderStatisticsStep(a, 0, 6, 3))
-#a = [5, 4, 1, 2]
-#print(KthOrderStatisticsStep(a, 0, 3, 0))
-a = [5, 1, 7, 4, 6, 8, 11, 10]
-print(KthOrderStatisticsStep(a, 0, 7, 0))
