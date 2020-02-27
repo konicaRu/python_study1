@@ -3,8 +3,7 @@ class HeapSort:
     def __init__(self, a):
         self.arr = a
         self.HeapObject = [None] * len(self.arr)  # создаем итоговый архив с нанами
-        self.HeapObject[0] = self.arr[0]
-        for i in range(1, len(self.arr)):  # пробегаем  по данным исходного массива начиная со второго тк первый уже вставили
+        for i in range(len(self.arr)):  # пробегаем  по данным исходного массива начиная со второго тк первый уже вставили
             self.Add(a[i])
 
     def GetNextMax(self):
