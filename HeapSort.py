@@ -3,7 +3,7 @@ class HeapSort:
     def __init__(self):
         self.HeapObject = []  # хранит неотрицательные числа-ключи
 
-    def MakeHeap(self, a):
+    def  HeapSort(self, a):
         self.HeapObject = [None] * len(a)   # создаем итоговый архив с нанами
         if len(a) == 0:
             return
@@ -56,5 +56,3 @@ class HeapSort:
             self.HeapObject[int((count - 1) / 2)] = self.HeapObject[count]  # меняем значение  родителя на ребенка
             self.HeapObject[count] = swap  # меняем значение ребенка на родителя
             count = int((count - 1) // 2)  # увеличивваем индекс на родительский
-
-        return self.HeapObject
