@@ -17,6 +17,10 @@ class MyTestCase(unittest.TestCase):
         a = [110, 9,40, 70,80, 30,10, 20,50, 60,65, 31,29, 11, 90]
         heap.HeapSort(a)
         self.assertEqual(heap.HeapObject == [110, 80, 90, 50, 70, 31, 40, 9, 20, 60, 65, 30, 29, 10, 11], True)
+        a = []
+        heap.HeapSort(a)
+        self.assertEqual(heap.HeapObject == [], True)
+        self.assertEqual(heap.GetNextMax() == -1, True)
 
     def test_arr_del(self):
         heap = HeapSort.HeapSort()
