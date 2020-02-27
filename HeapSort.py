@@ -3,29 +3,19 @@ class HeapSort:
     def __init__(self, a):
         self.arr = a
         self.HeapObject = [None] * len(self.arr)  # создаем итоговый архив с нанами
-        if len(a) == 0:
-            return
         self.HeapObject[0] = self.arr[0]
         for i in range(1, len(self.arr)):  # пробегаем  по данным исходного массива начиная со второго тк первый уже вставили
             self.Add(a[i])
 
-
     def GetNextMax(self):
-        count_N = 0
-        for i in self.HeapObject:
-            if i == None:
-                count_N += 1
-        if len(self.HeapObject) == count_N:
-            return -1  # если куча пуста состоит из None
-        count = 0
+        if len(self.HeapObject) == self.HeapObject.count(None):
+            return -1
+        count = len(self.HeapObject) - self.HeapObject.count(None)
         index = 0
-        for i in self.HeapObject:
-            if i != None:
-                count += 1
         root = self.HeapObject[0]
         self.HeapObject[0] = self.HeapObject[count - 1]
         self.HeapObject[count - 1] = None
-        while True: # if self.HeapObject[2]== None and self.HeapObject[0] < self.HeapObject[1]  меняем местами
+        while True:  # if self.HeapObject[2]== None and self.HeapObject[0] < self.HeapObject[1]  меняем местами
             if 2 * index + 1 > count - 2 or 2 * index + 2 > count - 2:
                 return root
             if self.HeapObject[2 * index + 2] > self.HeapObject[2 * index + 1]:
@@ -42,12 +32,9 @@ class HeapSort:
                 index = 2 * index + 1
 
     def Add(self, key):
-        count = 0
+        count = len(self.HeapObject) - self.HeapObject.count(None)
         if None not in self.HeapObject:
             return False  # если куча вся заполнена
-        for i in self.HeapObject:
-            if i != None:
-                count += 1
         self.HeapObject[count] = key
         while self.HeapObject[count] > self.HeapObject[int((count - 1) / 2)]:  # если элемент больше родителя
             swap = self.HeapObject[int((count - 1) / 2)]  # сохраняем значение родителя в переменной
