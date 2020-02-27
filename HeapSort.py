@@ -1,16 +1,14 @@
 class HeapSort:
 
-    def __init__(self):
-        self.HeapObject = []  # хранит неотрицательные числа-ключи
-
-    def  HeapSort(self, a):
-        self.HeapObject = [None] * len(a)   # создаем итоговый архив с нанами
+    def __init__(self, a):
+        self.arr = a
+        self.HeapObject = [None] * len(self.arr)  # создаем итоговый архив с нанами
         if len(a) == 0:
             return
-        self.HeapObject[0] = a[0]  # сразу ставим первый элемент
-        for i in range(1, len(a)):  # пробегаем  по данным исходного массива начиная со второго тк первый уже вставили
+        self.HeapObject[0] = self.arr[0]
+        for i in range(1, len(self.arr)):  # пробегаем  по данным исходного массива начиная со второго тк первый уже вставили
             self.Add(a[i])
-        return
+
 
     def GetNextMax(self):
         count_N = 0
@@ -24,10 +22,10 @@ class HeapSort:
         for i in self.HeapObject:
             if i != None:
                 count += 1
-        root =  self.HeapObject[0]
+        root = self.HeapObject[0]
         self.HeapObject[0] = self.HeapObject[count - 1]
         self.HeapObject[count - 1] = None
-        while True:
+        while True: # if self.HeapObject[2]== None and self.HeapObject[0] < self.HeapObject[1]  меняем местами
             if 2 * index + 1 > count - 2 or 2 * index + 2 > count - 2:
                 return root
             if self.HeapObject[2 * index + 2] > self.HeapObject[2 * index + 1]:
