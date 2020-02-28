@@ -15,16 +15,16 @@ class HeapSort:
         self.HeapObject[0] = self.HeapObject[count - 1]
         self.HeapObject[count - 1] = None
         while True:  # if self.HeapObject[2]== None and self.HeapObject[0] < self.HeapObject[1]  меняем местами
-            if 2 * index + 1 > count - 2 or 2 * index + 2 > count - 2:
+            if 2 * index + 1 >= count - 2 or 2 * index + 2 >= count - 2:
                 return root
-            if self.HeapObject[2 * index + 2] > self.HeapObject[2 * index + 1]:
+            if self.HeapObject[2 * index + 2] >= self.HeapObject[2 * index + 1]:
                 swapR = self.HeapObject[index]
                 self.HeapObject[index] = self.HeapObject[2 * index + 2]
                 self.HeapObject[2 * index + 2] = swapR
                 index = 2 * index + 2
-            if 2 * index + 1 > count - 2 or 2 * index + 2 > count - 2:
+            if 2 * index + 1 >= count - 2 or 2 * index + 2 >= count - 2:
                 return root
-            if self.HeapObject[2 * index + 2] < self.HeapObject[2 * index + 1]:
+            if self.HeapObject[2 * index + 2] <= self.HeapObject[2 * index + 1]:
                 swapL = self.HeapObject[index]
                 self.HeapObject[index] = self.HeapObject[2 * index + 1]
                 self.HeapObject[2 * index + 1] = swapL
