@@ -26,7 +26,7 @@ class ksort:
             if count_hach == 3:
                 res += self.one_hash[i]
 
-        return res
+        return res - 1
 
     def add(self, s):
         if self.index(s) == -1:
