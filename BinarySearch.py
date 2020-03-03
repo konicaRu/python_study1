@@ -8,11 +8,11 @@ class BinarySearch:
         self.elem_find = 0
         while True:
             pivot = (self.Left + self.Right) // 2
-            if self.Left == self.Right:
-                self.elem_find = False
-                return
             if arr[self.Left] == N or arr[self.Right] == N or arr[pivot] == N:
                 self.elem_find = True
+                return
+            if self.Left == self.Right:
+                self.elem_find = False
                 return
             if pivot == self.Left or self.Right == pivot:
                 self.elem_find = False
@@ -31,3 +31,4 @@ class BinarySearch:
             return +1
         if self.elem_find == False:
             return -1
+
