@@ -31,17 +31,3 @@ class BinarySearch:
             return +1
         if self.elem_find == False:
             return -1
-
-
-# arr = [1,  3, 4, 5, 6, 7, 8, 9, 10]
-# N = 3
-# bi = BinarySearch(arr)
-# bi.Step(N)
-# print(bi.GetResult())
-count = -1
-arr = [i for i in range(100000)]
-arr.pop(200)
-N = 5000
-bi = BinarySearch(arr)
-print(bi.Step(N))
-print(bi.GetResult())
