@@ -1,7 +1,7 @@
 class ksort:
 
     def __init__(self):
-        self.items = [0] * 799  # создаем итоговый архив с нанами
+        self.items = [0] * 800  # создаем итоговый архив с нанами
 
     def index(self, s):
         if len(s) > 3 or len(s) < 3:
