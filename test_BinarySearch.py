@@ -4,7 +4,7 @@ import BinarySearch
 
 class MyTestCase(unittest.TestCase):
     def test_list_exept(self):
-        arr = [i for i in range(1, 99)]
+        arr = [i for i in range(1, 100)]
         bi = BinarySearch.BinarySearch(arr)
         BinarySearch.N = 49
         self.assertEqual(bi.GetResult() == 1, True)
