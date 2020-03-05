@@ -8,21 +8,21 @@ class BinarySearch:
 
     def Step(self, N):
         self.elem_find = 0
-        pivot = (self.Left + self.Right) // 2
-        if self.arr[pivot] == N:  # было впереди self.arr[self.Left] == N or self.arr[self.Right] == N or
+        self.pivot = (self.Left + self.Right) // 2
+        if self.arr[self.pivot] == N:  # было впереди self.arr[self.Left] == N or self.arr[self.Right] == N or
             self.elem_find = 1
             return
-        if self.Left == self.Right:  # if pivot == self.Left or self.Right == pivot:
-            self.elem_find = 2
-            return
-        if self.arr[pivot] < N:
-            self.Left = pivot + 1  # было без + 1
-        if self.arr[pivot] > N:
-            self.Right = pivot - 1  # было без - 1
+
+        if self.arr[self.pivot] < N:
+            self.Left = self.pivot + 1 # было без + 1
+        if self.arr[self.pivot] > N:
+            self.Right = self.pivot - 1  # было без - 1
         if self.Left > self.Right:
             self.elem_find = 2
             return
-
+        if self.Left == self.Right:  # if pivot == self.Left or self.Right == pivot:
+            self.elem_find = 1
+            return
 
     def GetResult(self):
         if self.elem_find == 1:
