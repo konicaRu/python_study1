@@ -9,7 +9,7 @@ class MyTestCase(unittest.TestCase):
         bi = BinarySearch.BinarySearch(arr)
         for i in range(7):
             bi.Step(49)
-        self.assertEqual(bi.GetResult() == '+1', True)
+        self.assertEqual(bi.GetResult() == 1, True)
 
         arr = [i for i in range(1, 100)]
         bi = BinarySearch.BinarySearch(arr)
@@ -20,87 +20,148 @@ class MyTestCase(unittest.TestCase):
         arr = [i for i in range(1, 100)]
         bi = BinarySearch.BinarySearch(arr)
         for i in range(7):
-            bi.Step(49)
-        self.assertEqual(bi.GetResult() == '+1', True)
-
-        arr = [i for i in range(1, 100)]
-        bi = BinarySearch.BinarySearch(arr)
-        for i in range(7):
             bi.Step(1)
-        self.assertEqual(bi.GetResult() == '+1', True)
+        self.assertEqual(bi.GetResult() == 1, True)
 
         arr = [i for i in range(1, 100)]
         bi = BinarySearch.BinarySearch(arr)
         for i in range(7):
             bi.Step(99)
-        self.assertEqual(bi.GetResult() == '+1', True)
+        self.assertEqual(bi.GetResult() == 1, True)
 
         arr = [i for i in range(1, 100)]
         bi = BinarySearch.BinarySearch(arr)
         for i in range(7):
             bi.Step(25)
-        self.assertEqual(bi.GetResult() == '+1', True)
+        self.assertEqual(bi.GetResult() == 1, True)
 
         arr = [i for i in range(1, 100)]
         bi = BinarySearch.BinarySearch(arr)
         for i in range(7):
             bi.Step(24)
-        self.assertEqual(bi.GetResult() == '+1', True)
+        self.assertEqual(bi.GetResult() == 1, True)
 
         arr = [i for i in range(1, 100)]
         bi = BinarySearch.BinarySearch(arr)
         for i in range(7):
             bi.Step(23)
-        self.assertEqual(bi.GetResult() == '+1', True)
+        self.assertEqual(bi.GetResult() == 1, True)
 
         arr = [i for i in range(1, 100)]
         bi = BinarySearch.BinarySearch(arr)
         for i in range(7):
             bi.Step(75)
-        self.assertEqual(bi.GetResult() == '+1', True)
+        self.assertEqual(bi.GetResult() == 1, True)
 
         arr = [i for i in range(1, 100)]
         bi = BinarySearch.BinarySearch(arr)
         for i in range(7):
             bi.Step(77)
-        self.assertEqual(bi.GetResult() == '+1', True)
+        self.assertEqual(bi.GetResult() == 1, True)
+
+    def test_zero(self):
+        arr = [i for i in range(1, 100)]
+        bi = BinarySearch.BinarySearch(arr)
+        for i in range(2):
+            bi.Step(77)
+        self.assertEqual(bi.GetResult() == 0, True)
+
+        arr = [i for i in range(1, 100)]
+        bi = BinarySearch.BinarySearch(arr)
+        for i in range(1):
+            bi.Step(49)
+        self.assertEqual(bi.GetResult() == 0, True)
+
+        arr = [i for i in range(1, 100)]
+        bi = BinarySearch.BinarySearch(arr)
+        for i in range(5):
+            bi.Step(49)
+        self.assertEqual(bi.GetResult() == 0, True)
 
     def test_list_10(self):
         arr = [1, 3, 4, 5, 6, 7, 8, 10, 11]
         bi = BinarySearch.BinarySearch(arr)
         for i in range(3):
             bi.Step(1)
-        self.assertEqual(bi.GetResult() == '+1', True)
+        self.assertEqual(bi.GetResult() == 1, True)
 
-        arr = [1, 3, 4, 5, 6, 7, 8, 9, 10, 11]
+        arr = [1, 3, 4, 5, 6, 7, 8, 10, 11]
         bi = BinarySearch.BinarySearch(arr)
         for i in range(3):
             bi.Step(2)
         self.assertEqual(bi.GetResult() == -1, True)
 
-        arr = [1, 3, 4, 5, 6, 7, 8, 9, 10, 11]
-        bi = BinarySearch.BinarySearch(arr)
-        for i in range (3):
-            bi.Step(3)
-        self.assertEqual(bi.GetResult() == '+1', True)
-
-        arr = [1, 3, 4, 5, 6, 7, 8, 9, 10, 11]
+        arr = [1, 3, 4, 5, 6, 7, 8, 10, 11]
         bi = BinarySearch.BinarySearch(arr)
         for i in range(3):
-            bi.Step(9)
-        self.assertEqual(bi.GetResult() == '+1', True)
+            bi.Step(4)
+        self.assertEqual(bi.GetResult() == 1, True)
 
-        arr = [1, 3, 4, 5, 6, 7, 8, 9, 10, 11]
+        arr = [1, 3, 4, 5, 6, 7, 8, 10, 11]
         bi = BinarySearch.BinarySearch(arr)
-        for i in range(3):
+        for i in range(4):
+            bi.Step(5)
+        self.assertEqual(bi.GetResult() == 1, True)
+
+        arr = [1, 3, 4, 5, 6, 7, 8, 10, 11]
+        bi = BinarySearch.BinarySearch(arr)
+        for i in range(4):
             bi.Step(6)
-        self.assertEqual(bi.GetResult() == '+1', True)
+        self.assertEqual(bi.GetResult() == 1, True)
+
+        arr = [1, 3, 4, 5, 6, 7, 8, 10, 11]
+        bi = BinarySearch.BinarySearch(arr)
+        for i in range(4):
+            bi.Step(5)
+        self.assertEqual(bi.GetResult() == 1, True)
 
         arr = [1, 3, 4, 5, 6, 7, 8, 9, 10, 11]
         bi = BinarySearch.BinarySearch(arr)
         for i in range(3):
             bi.Step(7)
-        self.assertEqual(bi.GetResult() == '+1', True)
+        self.assertEqual(bi.GetResult() == 1, True)
+
+        arr = [1, 3, 4, 5, 6, 7, 8, 9, 10, 11]
+        bi = BinarySearch.BinarySearch(arr)
+        for i in range(4):
+            bi.Step(8)
+        self.assertEqual(bi.GetResult() == 1, True)
+
+        arr = [1, 3, 4, 5, 6, 7, 8, 9, 10, 11]
+        bi = BinarySearch.BinarySearch(arr)
+        for i in range(4):
+            bi.Step(9)
+        self.assertEqual(bi.GetResult() == 1, True)
+
+        arr = [1, 3, 4, 5, 6, 7, 8, 9, 10, 11]
+        bi = BinarySearch.BinarySearch(arr)
+        for i in range(4):
+            bi.Step(10)
+        self.assertEqual(bi.GetResult() == 1, True)
+
+        arr = [1, 3, 4, 5, 6, 7, 8, 9, 10, 11]
+        bi = BinarySearch.BinarySearch(arr)
+        for i in range (3):
+            bi.Step(3)
+        self.assertEqual(bi.GetResult() == 1, True)
+
+        arr = [1, 3, 4, 5, 6, 7, 8, 9, 10, 11]
+        bi = BinarySearch.BinarySearch(arr)
+        for i in range(3):
+            bi.Step(9)
+        self.assertEqual(bi.GetResult() == 1, True)
+
+        arr = [1, 3, 4, 5, 6, 7, 8, 9, 10, 11]
+        bi = BinarySearch.BinarySearch(arr)
+        for i in range(3):
+            bi.Step(6)
+        self.assertEqual(bi.GetResult() == 1, True)
+
+        arr = [1, 3, 4, 5, 6, 7, 8, 9, 10, 11]
+        bi = BinarySearch.BinarySearch(arr)
+        for i in range(3):
+            bi.Step(7)
+        self.assertEqual(bi.GetResult() == 1, True)
 
 if __name__ == '__main__':
     unittest.main()
