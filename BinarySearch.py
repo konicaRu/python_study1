@@ -26,7 +26,7 @@ class BinarySearch:
 
     def GetResult(self):
         if self.elem_find == 1:
-            return +1
+            return  '+1'
         if self.elem_find == 2:
             return -1
         if self.elem_find == 0:
