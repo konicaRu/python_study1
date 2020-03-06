@@ -19,7 +19,7 @@ class BinarySearch:
         if self.arr[self.Left] == self.arr[self.Right] == N:  # if pivot == self.Left or self.Right == pivot:
             self.elem_find = 1
             return
-        if self.arr[self.Left] == self.arr[self.Right] != N:  # if pivot == self.Left or self.Right == pivot:
+        if self.arr[self.Left] == self.arr[self.Right] != N or (self.Left + 1 == self.Right and self.arr[self.Left] != N and self.arr[self.Right] != N):  # if pivot == self.Left or self.Right == pivot:
             self.elem_find = 2
             return
         if self.Left > self.Right:
