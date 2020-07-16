@@ -61,9 +61,9 @@
 для преодоления дороги.
 
 ## Код решения:
-<def Unmanned(L, N, track):
-    color = ''
-    dist_gen = 0
+< def Unmanned(L, N, track):    
+    color = ''  
+    dist_gen = 0    
     gen_count = 0  # общий счетчик ходов
     for k in range(len(track)):  # отрезков действия столько сколько светофоров
         time_light = 0  # счетчик горения светофора? обнуляем при переходе к след светофору
