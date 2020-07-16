@@ -61,7 +61,7 @@
 для преодоления дороги.
 
 ## Код решения:
-''' def Unmanned(L, N, track):    
+``` def Unmanned(L, N, track):    
     color = ''  
     dist_gen = 0    
     gen_count = 0  # общий счетчик ходов
@@ -94,5 +94,5 @@
                 return dist_gen
             if color == 'green' and len(track) == 1:
                 dist_gen = track[k][0] + wait_time + (L - track[k][0])
-                return dist_gen '''
+                return dist_gen ```
 
