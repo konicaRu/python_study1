@@ -1,5 +1,5 @@
 # В этом разделе находяться решения небольших задач которые я решал изучая  Python
-![](https://raw.githubusercontent.com/konicaRu/python_task/master/pictures/kisspng-internet-of-things-computing-platform-application-5bf85104bf5f78.2612775815430003247839.jpg)
+![](https://raw.githubusercontent.com/konicaRu/python_task/master/pictures/copy_python.jpg)
 ## Например:
 ### Оптимизация беспилотного трафика
 Яндекс выпускает на улицы тысячи беспилотных автомобилей, и теперь появляется отличная возможность оптимизации трафика на дорогах.
