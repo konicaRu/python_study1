@@ -29,3 +29,4 @@ def QuickSort(m, i1, i2):
                 if m[i2] == n:
                     ind_supp = i1
                 m[i1], m[i2] = m[i2], m[i1]  # меняем местами элементы списка A[i], A[j] = A[j], A[i]
+ 
