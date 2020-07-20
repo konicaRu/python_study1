@@ -22,5 +22,4 @@ def SelectionSortStep(arr, b):
 
     return arr
 
-
 print(SelectionSortStep([4,3,1,2,5], 0))
